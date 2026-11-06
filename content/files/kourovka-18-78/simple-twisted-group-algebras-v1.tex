@@ -1,0 +1,987 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[expansion=false]{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,
+  citecolor=blue!45!black,urlcolor=blue!45!black,
+  pdftitle={Simple twisted group algebras over arbitrary fields},
+  pdfsubject={Proposed proof of Kourovka Problem 18.78}]{hyperref}
+
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\IBr}{IBr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\GL}{GL}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
+\setcounter{tocdepth}{1}
+
+\title[Simple twisted group algebras]{Simple twisted group algebras\\over arbitrary fields}
+\date{26 October 2026}
+
+\begin{document}
+\begin{abstract}
+A proof is proposed that a finite group admitting a simple twisted group
+algebra over an arbitrary field is soluble. The argument establishes a
+stronger assertion about transitive actions on irreducible characters
+above a faithful central character, allowing group automorphisms and
+cyclotomic Galois automorphisms to act together. Ordinary characters
+and $2$-Brauer characters are treated by one minimal-counterexample
+argument. An affine classification excludes the Brauer case and forces
+the ordinary case to have radical quotient a direct product of copies
+of $\mathrm{GL}_3(2)$. Canonical lifts give Galois stability in this
+class. Restriction to odd-order elements, followed by a central
+quotient, then produces a smaller counterexample in characteristic two.
+Galois descent and a Witt-vector lift connect the character theorem
+to twisted group algebras in every characteristic.
+\end{abstract}
+\maketitle
+\begin{center}
+\small\itshape Research preprint. The proposed proof requires independent verification.
+\end{center}
+\medskip
+
+
+\section{Introduction}
+
+Let $G$ be a finite group and let $K$ be a field. A normalized
+$2$-cocycle is a function $\alpha:G\times G\longrightarrow K^\times$
+satisfying
+\[
+ \alpha(1,g)=\alpha(g,1)=1,\qquad
+ \alpha(g,h)\alpha(gh,x)=\alpha(h,x)\alpha(g,hx).
+\]
+The twisted group algebra $K^\alpha G$ has a $K$-basis
+$\{u_g:g\in G\}$ and multiplication
+$u_gu_h=\alpha(g,h)u_{gh}$. Simplicity means that its only two-sided
+ideals are zero and the whole algebra; the center need not equal $K$.
+
+Passman's question, recorded as Problem~18.78 in the
+\emph{Kourovka Notebook} \cite{Kourovka}, asks whether simplicity of
+$K^\alpha G$ forces $G$ to be soluble. The distinction between simple
+and central simple algebras is essential. In characteristic zero, the
+central simple case follows from the theorem on groups of central
+type, whereas an arbitrary simple algebra can split into several
+simple components after extending the field \cite{Passman}.
+
+The purpose of this article is to give a proposed proof of the following
+statement.
+
+\begin{theorem}\label{thm:main}
+Let $G$ be a finite group, let $K$ be a field, and let
+$\alpha:G\times G\longrightarrow K^\times$ be a normalized $2$-cocycle.
+If $K^\alpha G$ is simple, then $G$ is soluble.
+\end{theorem}
+
+The character-theoretic statement underlying the proof permits group
+automorphisms and Galois automorphisms to act together. Write
+$\mathbb Q^{\mathrm{ab}}$ for the union of the cyclotomic fields in
+$\mathbb C$, and put
+$\Omega=\Gal(\mathbb Q^{\mathrm{ab}}/\mathbb Q)$.
+For $a\in\Aut(D)$, $\sigma\in\Omega$, and an ordinary character $\chi$,
+the paired action is
+\[
+ \chi^{(a,\sigma)}(g)=\sigma\bigl(\chi(a^{-1}(g))\bigr).
+\]
+The two operations commute. If $C\leq Z(D)$ and
+$\lambda\in\Irr(C)$ is linear, let
+\[
+ \Irr(D\mid\lambda)
+ =\{\chi\in\Irr(D):\chi|_C=\chi(1)\lambda\}.
+\]
+Here $\Irr(D)$ denotes the irreducible complex characters of $D$.
+More generally, for a normal subgroup $R$ and $\theta\in\Irr(R)$,
+$\Irr(D\mid\theta)$ consists of the irreducible characters whose
+restriction to $R$ contains $\theta$.
+
+\begin{theorem}\label{thm:ordinary}
+Let $D$ be a finite group, let $C\leq Z(D)$ be cyclic, and let
+$\lambda\in\Irr(C)$ be faithful. Suppose that
+$\Delta\leq\Aut(D)\times\Omega$ preserves $C$ and $\lambda$ under
+the paired action, and acts transitively on $\Irr(D\mid\lambda)$.
+Then $D$ is soluble.
+\end{theorem}
+
+Preserving $\lambda$ is a condition on each pair $(a,\sigma)$;
+neither component is required to preserve it separately.
+Navarro and Rizo proved the corresponding solubility result for an
+automorphism action, in a more general normal-subgroup setting
+\cite[Theorem~A]{NavarroRizo}. Allowing Galois operations requires an
+additional argument, because they need not preserve irreducible
+Brauer characters for an arbitrary finite group.
+
+Theorem~\ref{thm:ordinary} is proved simultaneously with its
+$2$-Brauer analogue for groups whose soluble-radical quotient is a
+direct product of copies of $\GL_3(2)$. Canonical lifts give Galois
+stability of Brauer characters in this class. A single minimal
+counterexample, chosen across both character types, produces an
+irreducible affine action. Its classification forces characteristic
+two and a radical quotient $\GL_3(2)^k$. This is impossible in the
+Brauer case, where the affine section has odd order. In the ordinary
+case, restriction to odd-order elements and quotienting by a
+nontrivial central $2$-subgroup produce a smaller Brauer counterexample.
+
+The affine classification and Galois stability are established first,
+before the shared minimal-counterexample argument.
+The last section passes from characters to twisted group algebras.
+In positive characteristic, a normal complement and a lift over
+Witt vectors reduce the assertion to characteristic zero.
+The proof uses the classification of finite simple groups through
+the cited prime-power-index and Schur-multiplier results.
+
+\subsection*{Conventions and standard ingredients}
+
+All groups in the character-theoretic arguments are finite.
+A group is \emph{perfect} if it equals its commutator subgroup.
+For a finite group $D$, the notation $D^{(\infty)}$ means the final,
+stable term of its derived series; it is perfect, and
+$D/D^{(\infty)}$ is soluble.
+We use $F(D)$ for the Fitting subgroup, the largest nilpotent normal
+subgroup. A \emph{component} is a subnormal perfect subgroup whose
+quotient by its center is nonabelian simple. The layer $E(D)$ is
+the product of the components. The generalized Fitting subgroup is
+$F^*(D)=F(D)E(D)$, and its centralizer is contained in it
+\cite{IsaacsGroups}.
+For a prime $p$, the symbols $O_p(D)$ and $O_{p'}(D)$ denote,
+respectively, the largest normal $p$-subgroup and the largest
+normal subgroup of order prime to $p$.
+
+For a prime $p$, a $p$-regular element is an element whose order is
+prime to $p$, and $\IBr_p(D)$ denotes the irreducible $p$-Brauer
+characters. Fix compatible identifications of roots of unity of
+order prime to $p$ with complex roots of unity. Brauer characters
+are then complex-valued functions on the $p$-regular elements.
+For an ordinary character $\chi$, its restriction to these elements
+is denoted by $\chi^0$. Pointwise application of $\sigma\in\Omega$
+to a Brauer character is always defined as a function; its
+irreducibility will be proved whenever it is needed.
+The notation $\IBr_p(D\mid\theta)$ has the same restriction meaning
+as in the ordinary case. For either kind of character of a normal
+subgroup, its inertia group is
+$I_D(\theta)=\{g\in D:\theta^g=\theta\}$.
+
+We use ordinary and modular Clifford theory and Gallagher's
+correspondence in their usual forms
+\cite[Chapters~6 and~11]{Isaacs}\cite[Theorems~4.6--4.8]{Vallejo}.
+Thus restriction to a normal subgroup is homogeneous up to
+conjugation, induction from the inertia group gives the Clifford
+correspondence, and an extension of an invariant irreducible
+character identifies the characters above it with the irreducible
+characters of the quotient. These assertions will be applied only
+after the relevant invariance and extension conditions have been
+checked.
+
+For a finite perfect group $Q$, its universal central extension
+$U\longrightarrow Q$ is finite and has central kernel the Schur
+multiplier of $Q$. The group $U$ is perfect and has trivial Schur
+multiplier; this property is called \emph{superperfectness}.
+Consequently, for the trivial actions on the coefficient groups,
+\[
+ H^2(U,\mathbb C^\times)=0,\qquad
+ H^2(U,\overline{\mathbb F}_2^\times)=0.
+\]
+An invariant irreducible representation across a quotient $U$
+therefore extends, and the extension is unique because $U$ has
+no nontrivial linear characters. Automorphisms of $Q$ lift uniquely
+to $U$; these facts give the equivariance in the descent arguments
+below \cite{Brown}.
+
+We work in the full group $\Omega$, rather than selecting lifts
+between finite cyclotomic Galois groups. Every action on a particular
+finite character set has finite image. Inner automorphisms can
+always be adjoined to a paired acting group: they fix ordinary
+and Brauer characters of the whole group and fix every central
+character.
+
+
+\section{An affine classification}
+\label{sec:affine}
+
+We first isolate the finite permutation-group argument used in both
+character-theoretic reductions. For a finite-dimensional vector space $V$
+over $\mathbb F_p$, write $\operatorname{AGL}(V)$ for its affine group and
+$\ell:\operatorname{AGL}(V)\to\operatorname{GL}(V)$ for linear projection.
+We identify $V$ with the subgroup of translations. The linear part of an
+affine group $E$ is called irreducible when $V$ is an irreducible
+$\mathbb F_p\ell(E)$-module.
+
+\begin{lemma}\label{lemma:affine-radical}
+Let $E\leq\operatorname{AGL}(V)$ be transitive, with irreducible linear part,
+where $V\ne0$. Suppose that $1\ne J\triangleleft E$ is perfect and that
+every point stabilizer in $J$ is soluble. Then
+$\operatorname{Rad}(J)=1$, and linear projection is injective on $J$.
+\end{lemma}
+
+\begin{proof}
+The image of $O_p(J)$ under linear projection is a normal $p$-subgroup of
+$\ell(E)$. A $p$-group acting in characteristic $p$ has nonzero fixed
+vectors. Its fixed space is $\ell(E)$-invariant, so irreducibility makes
+this image trivial. Thus $O_p(J)$ consists of translations.
+
+The translation subgroup $J\cap V$ is an $\ell(E)$-invariant subspace,
+and hence equals $0$ or $V$. In the latter case $J=VJ_0$, so
+$J/V\cong J_0$ is soluble. It is also perfect, as a quotient of $J$,
+and therefore trivial. This would make $J=V$ abelian and perfect,
+contrary to $J\ne1$. Consequently $J\cap V=1$ and $O_p(J)=1$.
+
+The group $O_{p'}(J)$ fixes an affine point: average the orbit of any
+point, using that its order is invertible in $\mathbb F_p$. Its fixed-point
+set is $E$-invariant because $O_{p'}(J)$ is normal in $E$. Transitivity
+makes this set all of $V$, and faithfulness gives $O_{p'}(J)=1$.
+If the soluble radical of $J$ were nontrivial, its Fitting subgroup would
+contain a nontrivial subgroup $O_r(J)$ for some prime $r$. This contradicts
+$O_p(J)=O_{p'}(J)=1$.
+\end{proof}
+
+\begin{theorem}\label{thm:affine}
+Under the hypotheses of Lemma~\ref{lemma:affine-radical}, suppose in addition
+that $J$ is a direct product of nonabelian simple groups. Then there is an
+integer $k\geq1$ such that
+\[
+ p=2,\qquad J\cong\operatorname{GL}_3(2)^k.
+\]
+\end{theorem}
+
+\begin{proof}
+Put $n=\dim_{\mathbb F_p}V$ and write
+$J=S_1\times\cdots\times S_k$, where each $S_i$ is nonabelian simple.
+Since $J$ is normal in the transitive group $E$, its orbits have equal
+lengths dividing $p^n$. Each factor $S_i$ is normal in $J$, so its
+orbits within a $J$-orbit also have equal lengths dividing that $p$-power. The stabilizer of any point in $S_i$ is soluble,
+and is proper because $S_i$ is not soluble.
+
+The classification of simple groups with a soluble subgroup of prime-power
+index gives the following possibilities for a simple factor and its orbit
+length:
+\[
+ (A_5,5),\quad
+ (\operatorname{PSL}_3(2),7),\quad
+ (\operatorname{PSL}_3(3),13),\quad
+ (\operatorname{PSL}_2(q),q+1).
+\]
+In the last case $q+1$ is a prime power. The actions are the natural
+point or hyperplane actions in the first three cases, and the projective-line
+action in the last case; see \cite[Lemma~6 and Corollary~7]{BastosSchneider}.
+In particular, for a fixed simple group and a fixed prime $p$, all the
+orbits have the same length.
+
+The fixed points of an affine transformation form either the empty set
+or an affine subspace. A nonempty fixed-point set therefore has $p$-power
+cardinality. This elementary observation excludes three entries at once.
+A $3$-cycle in the degree-five action of $A_5$ fixes two points. An
+involution in either degree-seven action of $\operatorname{PSL}_3(2)$
+fixes three points. In either degree-thirteen action of
+$\operatorname{PSL}_3(3)$, the involution represented by
+$\operatorname{diag}(-1,-1,1)$ fixes five points: four on its two-dimensional
+eigenspace and one on its complementary eigenline. On $V$ the corresponding
+counts are, respectively, $2\cdot5^a$, $3\cdot7^a$ and $5\cdot13^a$
+for some $a\geq0$, none of which is a power of the relevant characteristic.
+
+It remains to consider $\operatorname{PSL}_2(q)$. If $q$ is even, a
+nonidentity split-torus element fixes exactly two projective points.
+Since the prime dividing $q+1$ is odd, its total fixed-point count on
+$V$ is again impossible. Hence $q$ is odd; the same classification gives $q$ prime and
+\[
+ p=2,\qquad q+1=2^m.
+\]
+Nonabelian simplicity excludes $q=3$, so $m\geq3$.
+
+Choose an element $x$ of order $q$ in $S_i$. It fixes one point in each
+projective-line orbit, and therefore $2^{n-m}$ points on $V$. Translating
+one fixed point to the origin shows that
+\begin{equation}\label{eq:affine-rank}
+ \operatorname{rank}(\ell(x)-1)=m.
+\end{equation}
+The multiplicative order of $2$ modulo $q=2^m-1$ is $m$: no smaller
+positive exponent can give a multiple of $q$. Thus every nontrivial
+irreducible $\mathbb F_2\langle x\rangle$-module has dimension $m$.
+Equation~\eqref{eq:affine-rank} says that the nontrivial eigencharacters
+of $x$ constitute a single Frobenius orbit of length $m$, each occurring
+once. The normalizer of $\langle x\rangle$ in $S_i$ induces the squares
+in $\mathbb F_q^{\times}$, a subgroup of order $(q-1)/2$, on these
+eigencharacters. This subgroup acts freely on the nontrivial characters
+and must preserve that one orbit. Hence
+\[
+ \frac{q-1}{2}\leq m.
+\]
+Together with $q=2^m-1$ and $m\geq3$, this forces $m=3$ and $q=7$.
+Thus every $S_i$ is isomorphic to $\operatorname{GL}_3(2)$, as required.
+\end{proof}
+
+
+
+\section{Galois stability in characteristic two}
+\label{sec:galois-stability}
+
+Put $S=\operatorname{GL}_3(2)$, and consider the class
+\[
+\mathcal C=\bigl\{G\text{ finite}:G/\operatorname{Rad}(G)\cong S^k
+                         \text{ for some }k\geq0\bigr\}.
+\]
+Here $\operatorname{Rad}(G)$ is the soluble radical. In particular,
+$\mathcal C$ contains all soluble groups. We shall use this class exactly as
+defined; knowing only the composition factors of a group would not suffice.
+
+We need three facts about $S$. Every proper subgroup of $S$ is soluble;
+its Schur multiplier has order two; and its irreducible $2$-Brauer characters
+have degrees $1,3,3,8$. Each of these four Brauer characters is the restriction
+of an ordinary irreducible character of the same degree. Since the ordinary
+degrees are $1,3,3,6,7,8$, these four lifts form a Galois-stable set.
+These facts are recorded in the character-table and subgroup data for $S$
+\cite{GAP}. Consequently the full cyclotomic Galois group permutes
+$\operatorname{IBr}_2(S)$ and, by taking tensor products, also
+$\operatorname{IBr}_2(S^k)$.
+
+We also use canonical lifts for soluble groups. If $R$ is soluble, restriction
+to odd-order elements gives a bijection
+\[
+B_{2'}(R)\longrightarrow\operatorname{IBr}_2(R).
+\]
+The set on the left is invariant under group automorphisms and under all
+cyclotomic Galois automorphisms \cite[Theorems~1.25 and~4.30]{Vallejo}.
+Thus an invariant Brauer character has an invariant canonical ordinary lift,
+and taking canonical lifts commutes with Galois conjugation.
+
+\begin{lemma}\label{lemma:class-closure}
+The class $\mathcal C$ is closed under subgroups, quotients, and finite
+central extensions.
+\end{lemma}
+
+\begin{proof}
+First let $H\leq S^k$. Project $H$ onto those coordinates on which its
+projection is all of $S$. The image is a subdirect product of copies of a
+nonabelian simple group, hence a product of diagonal copies of $S$.
+This standard consequence of Goursat's lemma follows by adding one
+coordinate at a time: the new coordinate either supplies an independent
+factor or is identified with an existing simple quotient.
+The kernel embeds in a product of proper subgroups of $S$, so it is soluble.
+Since the image has trivial soluble radical, the kernel is precisely
+$\operatorname{Rad}(H)$.
+
+For a subgroup of an arbitrary $G\in\mathcal C$, apply this observation to
+its image in $G/\operatorname{Rad}(G)$. The additional kernel lies in
+$\operatorname{Rad}(G)$ and is soluble. Quotient closure follows because
+every quotient of $S^k$ is a product of some of its simple factors.
+Finally, in a central extension of $G$, the inverse image of
+$\operatorname{Rad}(G)$ is soluble and its quotient is $S^k$; it is therefore
+the soluble radical of the extension.
+\end{proof}
+
+Brauer characters will be regarded as complex-valued functions on the
+odd-order elements, using a fixed identification of odd-order roots of
+unity with their modular counterparts. For an arbitrary group, pointwise
+Galois conjugation need not preserve irreducible Brauer characters. The next
+result establishes the precise stability needed here.
+
+\begin{theorem}\label{thm:galois-stability}
+Let $G\in\mathcal C$. For every $\varphi\in\operatorname{IBr}_2(G)$ and
+every cyclotomic Galois automorphism $\sigma$, the function
+$\varphi^\sigma$ belongs to $\operatorname{IBr}_2(G)$.
+\end{theorem}
+
+\begin{proof}
+We argue by induction on $|G|$. For soluble groups the assertion follows
+from the canonical lifting bijection. Set $R=\operatorname{Rad}(G)$,
+choose a constituent $\theta$ of $\varphi_R$, and let
+$T=I_G(\theta)$.
+
+If $T<G$, modular Clifford theory writes $\varphi=\psi^G$ for a unique
+$\psi\in\operatorname{IBr}_2(T\mid\theta)$. The closure lemma and induction
+give $\psi^\sigma\in\operatorname{IBr}_2(T)$. Moreover
+\[
+I_G(\theta^\sigma)=I_G(\theta)=T,
+\]
+because Galois conjugation commutes with group conjugation and is invertible.
+The restriction of $\psi^\sigma$ to $R$ is a multiple of $\theta^\sigma$.
+Clifford theory therefore makes $(\psi^\sigma)^G$ irreducible, and induction
+of characters commutes with Galois conjugation. Hence
+$\varphi^\sigma=(\psi^\sigma)^G$ is irreducible.
+
+Suppose now that $\theta$ is $G$-invariant, and let
+$\chi\in B_{2'}(R)$ be its canonical lift. This ordinary character is also
+$G$-invariant. Let $U\to G/R$ be the universal central extension, with
+kernel $M$, and form the fibre product
+\[
+\widehat G=G\times_{G/R}U.
+\]
+The quotient $\widehat G/R$ is $U$. Since $U$ is superperfect, the obstruction
+in $H^2(U,\mathbb C^\times)$ vanishes and $\chi$ extends to an ordinary
+irreducible character $\widehat\chi$ of $\widehat G$. The extension is
+unique because $U$ has no nontrivial linear characters. Furthermore,
+$M=\ker(\widehat G\to G)$ is a central $2$-group: the multiplier of $S^k$
+is the product of the multipliers of its factors.
+
+Choose an invariant lattice affording $\widehat\chi$ in a sufficiently large
+$2$-modular system, and reduce it modulo its maximal ideal. Its restriction
+to $R$ has Brauer character $\chi^0=\theta$, so that restriction, and
+therefore the entire reduced module, is irreducible. The central group $M$
+acts on the ordinary representation by scalars of $2$-power order. These
+scalars reduce to one. The reduced module thus descends to an irreducible
+Brauer character $\tau$ of $G$ extending $\theta$.
+
+Apply the same reasoning to $\widehat\chi^\sigma$. Its restriction
+$\chi^\sigma$ is the canonical lift of $\theta^\sigma$, so its reduction
+again descends to an irreducible character of $G$. This character is
+$\tau^\sigma$. Indeed, an odd-order element $g\in G$ has a unique
+odd-order lift $\widetilde g$ in $\widehat G$: the inverse image of
+$\langle g\rangle$ is abelian, and its odd Hall subgroup maps isomorphically
+onto $\langle g\rangle$. Thus
+\[
+\tau(g)=\widehat\chi(\widetilde g),\qquad
+\tau^\sigma(g)=\widehat\chi^\sigma(\widetilde g).
+\]
+
+Finally, the modular Gallagher correspondence gives
+\[
+\operatorname{IBr}_2(G\mid\theta)
+ =\{\tau\beta:\beta\in\operatorname{IBr}_2(G/R)\},
+\]
+with quotient characters inflated to $G$. The Galois stability of
+$\operatorname{IBr}_2(S^k)$ now shows that every
+$(\tau\beta)^\sigma=\tau^\sigma\beta^\sigma$ is irreducible.
+\end{proof}
+
+The Galois operations in this proof are performed on ordinary characters
+before reduction to characteristic two.
+
+\subsection*{Restriction transfers transitivity}
+
+\begin{lemma}\label{lemma:restriction-transitivity}
+Let $D/\Rad(D)$ be a direct product of copies of $\GL_3(2)$.
+Let $C\leq Z(D)$ be cyclic, let $\lambda\in\Irr(C)$ be faithful,
+and suppose that a paired group $\Delta$ preserves $C$ and $\lambda$
+and is transitive on $\Irr(D\mid\lambda)$. Then $\Delta$ is transitive on
+$\IBr_2(D\mid\lambda|_{C_{2'}})$, where $C_{2'}$ is the odd-order
+Hall subgroup of $C$.
+\end{lemma}
+
+\begin{proof}
+Write $C=C_2\times C_{2'}$, where $C_2$ is the Sylow $2$-subgroup,
+and write $\lambda=\lambda_2\times\lambda_{2'}$.
+Theorem~\ref{thm:galois-stability} ensures that $\Delta$ permutes
+\[
+ X=\Irr(D\mid\lambda),\qquad
+ Y=\IBr_2(D\mid\lambda_{2'}).
+\]
+Restriction to odd-order elements defines a linear map
+\[
+ \mathbb C X\longrightarrow\mathbb C Y.
+\]
+We verify surjectivity explicitly. The space $\mathbb C X$ consists
+of the class functions $f$ on $D$ satisfying
+$f(cg)=\lambda(c)f(g)$ for $c\in C$. The corresponding description
+of $\mathbb C Y$ uses class functions on the odd-order elements
+and the character $\lambda_{2'}$ of $C_{2'}$.
+For such a target function $f$, use the commuting primary
+decomposition $g=g_2g_{2'}$ and set
+\[
+ \widetilde f(g)=
+ \begin{cases}
+  \lambda_2(g_2)f(g_{2'}),&g_2\in C_2,\\
+  0,&g_2\notin C_2.
+ \end{cases}
+\]
+This is conjugation-invariant. Since elements of $C$ are central,
+multiplication by $c=c_2c_{2'}$ replaces the primary factors by
+$c_2g_2$ and $c_{2'}g_{2'}$. Thus
+$\widetilde f(cg)=\lambda(c)\widetilde f(g)$.
+Its restriction to the odd-order elements is $f$, proving
+surjectivity.
+
+The actions on the two vector spaces are the \emph{complex-linear}
+extensions of their permutation actions on irreducible characters.
+Restriction intertwines these actions. Indeed, the decomposition
+numbers in
+\[
+ \chi^0=\sum_{\varphi\in Y}d_{\chi\varphi}\varphi
+\]
+are integers. Applying $\sigma$ to character values preserves
+these coefficients and gives the corresponding equality for
+$\chi^\sigma$; group automorphisms commute with restriction as
+well. Dualizing this surjection embeds the space of invariant
+functionals on $\mathbb C Y$ into that on $\mathbb C X$.
+For a permutation basis, this dimension is the number of orbits.
+Since $X$ is transitive and $Y$ is nonempty, $Y$ has exactly one orbit.
+\end{proof}
+
+
+
+\section{One argument for ordinary and Brauer characters}
+\label{sec:character-transitivity}
+
+We prove Theorem~\ref{thm:ordinary} together with the following
+modular analogue.
+
+\begin{theorem}\label{thm:modular-transitivity}
+Let $G\in\mathcal C$, let $C\leq Z(G)$ be cyclic of odd order, and let
+$\lambda\in\Irr(C)$ be faithful. Suppose a group of paired
+automorphism--Galois operations preserves $C$, fixes $\lambda$, and is
+transitive on $\IBr_2(G\mid\lambda)$. Then $G$ is soluble.
+\end{theorem}
+
+\begin{lemma}\label{lemma:character-cover}
+Work either with ordinary characters of finite groups, or with irreducible
+$2$-Brauer characters of groups in $\mathcal C$. Let $R\triangleleft N$
+and let $\theta$ be an $N$-invariant irreducible character of $R$ of the
+chosen kind. If $N/R$ is perfect, there exist a finite perfect group
+$D_0$, a cyclic central subgroup $C_0$, and a faithful
+$\lambda_0\in\Irr(C_0)$, such that $D_0/C_0\cong N/R$ and the
+characters of $N$ above $\theta$ correspond bijectively to the characters
+of $D_0$ above $\lambda_0$. The correspondence is equivariant for paired
+operations preserving $R$ and fixing $\theta$. In the Brauer case,
+$D_0\in\mathcal C$ and $C_0$ has odd order.
+\end{lemma}
+
+\begin{proof}
+Let $U\twoheadrightarrow N/R$ be the universal central extension, with
+kernel $M$, and form the pullback $\widehat N=N\times_{N/R}U$.
+Thus $\widehat N/R\cong U$, while the kernel of
+$\widehat N\twoheadrightarrow N$ is the central subgroup $M$.
+The group $U$ is finite and superperfect. Hence the character-extension
+obstruction vanishes, in $H^2(U,\mathbb C^\times)$ or
+$H^2(U,\overline{\mathbb F}_2^\times)$ respectively. The resulting
+extension $\widehat\theta$ is unique, because any two extensions differ
+by a linear character of the perfect group $U$.
+
+Let $\kappa$ be the scalar character of $M$ in this extension. In the
+Brauer case it has odd order and is viewed as a complex linear character
+trivial on the Sylow $2$-subgroup of $M$. The ordinary or modular Gallagher
+correspondence gives the characters above $\theta$ in $\widehat N$ by
+tensoring its extension with irreducible representations of $U$. Such a
+tensor product descends to $N$ precisely when its scalar character on
+$M$ is trivial. We may therefore take
+\[
+ D_0=U/\ker\kappa,\qquad C_0=M/\ker\kappa,
+\]
+with $\lambda_0$ induced by $\kappa^{-1}$. These have the required
+properties; in the Brauer case, class membership follows from
+Lemma~\ref{lemma:class-closure}.
+
+An automorphism of $N$ preserving $R$ induces one of $N/R$, which
+lifts uniquely to $U$ and gives a natural automorphism of the pullback.
+In the Brauer case $\widehat N\in\mathcal C$,
+so Theorem~\ref{thm:galois-stability} ensures that paired transforms of
+$\widehat\theta$ remain irreducible. A pair fixing $\theta$ therefore
+fixes its unique extension, and hence fixes $\kappa$ and preserves its
+kernel. The tensor-product correspondence and its descent are equivariant.
+\end{proof}
+
+\begin{proof}[Proof of Theorems~\ref{thm:ordinary}
+and~\ref{thm:modular-transitivity}]
+Suppose that one of the theorems fails. Among all nonsoluble configurations
+of either kind choose one minimizing
+\[
+ (|G:C|,|G|)
+\]
+lexicographically. Throughout this proof, ``characters'' means characters
+of its chosen kind. Adjoin inner automorphisms to the paired group
+$\Delta$, and let $\mathcal A$ be its projection to $\Aut(G)$.
+Invariance below means invariance under $\mathcal A$.
+In the Brauer case all subgroups, quotients, and central extensions used
+below belong to $\mathcal C$, and their characters are Galois-stable, by
+Lemma~\ref{lemma:class-closure} and Theorem~\ref{thm:galois-stability}.
+
+\smallskip\noindent\emph{Minimality and restriction.}
+For every invariant normal subgroup $L$, the paired action is transitive
+on the characters of $L$ above $\lambda|_{C\cap L}$. Indeed, each such
+representation $\rho$ extends to $CL$ by
+$\widetilde\rho(cl)=\lambda(c)\rho(l)$, using the corresponding
+odd-order modular roots of unity in the Brauer case. This extension
+is covered by a character of $G$. Transitivity on the covering characters and Clifford theory
+connect any two constituents on $L$, using an inner conjugation to align
+the constituents.
+
+Apply this observation to the last derived subgroup $G^{(\infty)}$.
+Its index over $C\cap G^{(\infty)}$ is at most $|G:C|$, and its order
+is smaller if it is proper. Minimality would make it, and hence $G$,
+soluble. Thus $G$ is perfect.
+In the Brauer case every irreducible character kills $O_2(G)$.
+Since $C$ is odd, quotienting by a nontrivial $O_2(G)$ strictly decreases
+the central index and preserves nonsolubility. Therefore $O_2(G)=1$,
+and in particular $Z(G)$ is odd.
+
+We claim that $C=Z(G)$. Choose a linear character $\nu$ of $Z(G)$ above
+$\lambda$. Its paired stabilizer is transitive on the characters of
+$G$ above $\nu$. Factoring by $\ker\nu$ gives a faithful cyclic central
+character and central index $|G:Z(G)|$. If $Z(G)>C$, minimality makes
+this quotient soluble, and its central kernel then makes $G$ soluble.
+This quotient action is well defined: Galois conjugation preserves the
+kernel of a linear character, so the paired stabilizer preserves
+$\ker\nu$.
+
+Every proper invariant normal subgroup $L$ is soluble. If $CL<G$,
+restriction and minimality applied to $CL$ give this assertion. The
+alternative $CL=G$ would make the perfect quotient $G/L$ abelian and
+force $L=G$. Consequently $G/\Rad(G)$ is characteristically simple:
+the inverse image of any proper characteristic subgroup is soluble,
+while this quotient has trivial soluble radical. Thus
+$G/\Rad(G)$ is a direct product of isomorphic nonabelian simple groups.
+
+\smallskip\noindent\emph{Soluble inertia groups.}
+Let $C<R<G$ be invariant and normal, and let $\theta$ be a character of
+$R$ above $\lambda$. Put $T=I_G(\theta)$ and $N=RT^{(\infty)}$.
+Clifford induction makes the paired stabilizer $\Delta_\theta$
+transitive on the characters of $T$ above $\theta$: map their induced
+characters in $G$, correct by an inner conjugation to fix $\theta$,
+and use uniqueness of the Clifford correspondent. This stabilizer
+preserves $N$ and contains the inner automorphisms of $T$. Restriction
+and Clifford theory therefore give transitivity on the characters of
+$N$ above $\theta$.
+
+The quotient $N/R$ is perfect. Lemma~\ref{lemma:character-cover} produces
+a configuration of the same kind whose central index is
+\[
+ |D_0:C_0|=|N:R|\leq |G:R|<|G:C|.
+\]
+Minimality makes $D_0$ soluble, and its perfectness gives $D_0=1$.
+Thus $T^{(\infty)}\leq R$. Since $R$ is soluble, so is $T$.
+In particular, no such $R$ has a unique character above $\lambda$,
+because its inertia group would be $G$.
+
+\smallskip\noindent\emph{Eliminating the layer.}
+In the ordinary case we first show
+\begin{equation}\label{eq:prime-support}
+ \text{every prime dividing $|G|$ divides $|C|$.}
+\end{equation}
+Otherwise, for a prime $q\mid |G|$ with $q\nmid |C|$, choose a Sylow
+$q$-subgroup $P$. The subgroup $CP=C\times P$ has linear character
+$\rho=\lambda\times1_P$. Pairs normalizing $P$ fix $\rho$, and are
+still transitive on $\Irr(G\mid\lambda)$: Sylow conjugacy adjusts any
+pair by an inner automorphism without changing its action on characters
+of $G$. If there are $r$ characters above $\lambda$, all have the same
+degree $d$ and the same positive multiplicity $b$ in $\rho^G$.
+The degree and degree-square identities give
+\[
+ |G:CP|=brd,\qquad |G:C|=rd^2.
+\]
+The first index is prime to $q$, whereas the second is divisible by $q$,
+a contradiction.
+
+The layer $E(G)$ is characteristic and perfect, so it is either trivial
+or all of $G$. Suppose that $G=E(G)$. Then $G$ is a central product of
+quasisimple groups, its radical is its center, and all the components
+have the same simple central quotient.
+In the ordinary case this simple group has a prime divisor absent from
+its Schur multiplier \cite[Theorem~3.4]{NavarroRizo}. The centers of
+the components are quotients of that multiplier and generate $Z(G)$.
+This prime therefore divides $|G|$ but not $|C|$, contradicting
+\eqref{eq:prime-support}.
+In the Brauer case the simple quotient is $S=\GL_3(2)$, whose multiplier
+has order two. Hence $Z(G)$ is a $2$-group. Since $O_2(G)=1$, we obtain
+$G\cong S^k$ and $C=1$. Its trivial Brauer character is fixed by every
+pair, whereas nontrivial irreducible Brauer characters exist. This again
+contradicts transitivity. Thus $E(G)=1$ in both cases.
+
+\smallskip\noindent\emph{An abelian normal section.}
+The generalized Fitting subgroup is now $F=F(G)$, so $C_G(F)\leq F$.
+It follows that $C<F<G$: equality $F=C$ would give $G\leq F$, and
+$F=G$ would make $G$ soluble. In the Brauer case $F$ is odd because
+$O_2(G)=1$.
+
+In each Sylow subgroup of $F$ choose a characteristic Thompson critical
+subgroup. Their product $T$ is characteristic, has class at most two,
+and satisfies $C_F(T)=Z(T)$ \cite{Gorenstein}.
+If $Z(T)\leq C$, set $R=CT$. Then $Z(R)=C$ and $C<R<G$.
+Indeed, $T\leq C$ would give $F=C_F(T)=Z(T)\leq C$.
+For $\chi\in\Irr(R\mid\lambda)$ and $x\notin C$, choose $y\in R$
+with $[x,y]\ne1$. This commutator lies in $C$, so
+\[
+ \chi(x)=\chi(x^y)=\lambda([x,y])\chi(x).
+\]
+Faithfulness gives $\lambda([x,y])\ne1$, so $\chi(x)=0$.
+Orthogonality gives $\chi(1)^2=|R:C|$, and the degree-square sum above
+$\lambda$ then makes $\chi$ unique. In the Brauer case $R$ is odd, so
+ordinary and Brauer characters coincide. In either case uniqueness
+contradicts the inertia-group conclusion.
+
+Therefore $CZ(T)>C$. Choose $A/C$ minimal nontrivial invariant in
+$CZ(T)/C$. Then $A$ is abelian, $C<A<G$, and $A/C$ is an elementary
+abelian $q$-group irreducible under $\mathcal A$. In the Brauer case
+$q$ is odd.
+
+\smallskip\noindent\emph{The affine contradiction.}
+The set $\Irr(A\mid\lambda)$ is an affine space with translation space
+$\operatorname{Hom}(A/C,\mu_q)$, where $\mu_q$ denotes the complex
+$q$-th roots of unity. In the Brauer case these are also the Brauer
+characters of $A$ above $\lambda$. Restriction gives a transitive paired
+action with finite image $E$. Its linear parts are dual automorphisms
+of $A/C$ multiplied by Galois scalars, so its linear part is irreducible.
+
+Let $J$ be the image of the inner automorphisms of $G$ in $E$.
+It is perfect and normal. It is nontrivial because the characters above
+$\lambda$ separate $A$: their ratios separate $A/C$, and $\lambda$
+is faithful on $C$. If $J=1$, every commutator $[a,g]$ would lie in all
+their kernels, giving $A\leq Z(G)=C$.
+The point stabilizers of $J$ are images of the soluble inertia groups
+$I_G(\nu)$, with $\nu\in\Irr(A\mid\lambda)$.
+Lemma~\ref{lemma:affine-radical} therefore gives $\Rad(J)=1$.
+The kernel of $G\twoheadrightarrow J$ is a proper invariant normal
+subgroup, hence soluble; since $J$ has trivial radical, that kernel is
+exactly $\Rad(G)$. Thus $J$ is a direct product of nonabelian simple
+groups, and Theorem~\ref{thm:affine} gives
+\[
+ q=2,\qquad G/\Rad(G)\cong J\cong\GL_3(2)^k\quad(k\geq1).
+\]
+This immediately contradicts the oddness of $q$ in the Brauer case.
+
+It remains to consider the ordinary case. We have now proved
+$G\in\mathcal C$, so Lemma~\ref{lemma:restriction-transitivity}
+transfers the paired transitivity to
+$\IBr_2(G\mid\lambda|_{C_{2'}})$.
+Since $|G|$ is even, \eqref{eq:prime-support} shows that the Sylow
+$2$-subgroup $C_2$ of $C$ is nontrivial. Every irreducible $2$-Brauer
+character kills $C_2$, so the paired action descends to the modular
+configuration
+\[
+ G/C_2,\qquad C/C_2,\qquad \overline\lambda,
+\]
+where $\overline\lambda$ is the faithful character induced by
+$\lambda|_{C_{2'}}$. The action descends because $C_2$ is characteristic
+in the preserved subgroup $C$. The quotient is still nonsoluble and belongs to
+$\mathcal C$.
+
+Its parameters satisfy
+\[
+ |G/C_2:C/C_2|=|G:C|,\qquad |G/C_2|<|G|.
+\]
+This contradicts our common minimal choice and proves both theorems.
+\end{proof}
+
+
+\section{Twisted group algebras over arbitrary fields}
+\label{sec:fields}
+
+\subsection{Characteristic zero}
+
+Assume that $\operatorname{char}K=0$ and that $K^\alpha G$ is simple.
+Let $k$ be the subfield generated over $\mathbb Q$ by the finitely
+many coefficients of $\alpha$. The algebra $k^\alpha G$ is simple:
+extending a nonzero proper ideal to $K$ would give a nonzero proper
+ideal of $K^\alpha G$, by faithful flatness of field extensions.
+The field $k$ is finitely generated over $\mathbb Q$, so we may
+embed an algebraic closure $\overline k$ into $\mathbb C$.
+
+Put $n=|G|$ and $b(g)=\prod_{x\in G}\alpha(g,x)$.
+Multiplying the cocycle identity over $x\in G$, and using the
+permutation $x\mapsto hx$, gives
+\[
+ \alpha(g,h)^n b(gh)=b(g)b(h).
+\]
+Choose $t(g)\in\overline k^\times$ with $t(g)^n=b(g)$ and $t(1)=1$.
+Then
+\[
+ \beta(g,h)=\alpha(g,h)\frac{t(gh)}{t(g)t(h)}
+\]
+is a normalized cocycle with values in the group $\mu_n$ of
+$n$-th roots of unity. Define the finite group
+\[
+ H=\mu_n\times_\beta G,\qquad
+ (z,g)(w,h)=(zw\beta(g,h),gh).
+\]
+Its subgroup $\mu_n$ is central and $H/\mu_n\cong G$.
+Inside the units of $\overline k^\alpha G$, the element $(z,g)$
+is represented by $z u_g/t(g)$. Hence, with
+$\lambda_0(z)=z$, the simple $\overline k^\alpha G$-modules
+correspond to $\Irr(H\mid\lambda_0)$.
+
+The algebra $k^\alpha G$ is finite-dimensional and simple.
+Its center is a finite separable extension of $k$, and its
+simple components after extension to $\overline k$ form one
+orbit under $\Gal(\overline k/k)$. To describe the resulting
+action on characters correctly, let
+$\sigma\in\Gal(\overline k/k)$ and set
+$\ell_\sigma(g)=\sigma(t(g))/t(g)\in\mu_n$.
+Applying $\sigma$ to the embedded group of units gives the
+automorphism
+\[
+ f_\sigma(z,g)
+   =\bigl(\sigma(z)\ell_\sigma(g)^{-1},g\bigr).
+\]
+Thus the transitive action on $\Irr(H\mid\lambda_0)$ is
+\[
+ \chi\longmapsto\chi^\sigma\circ f_\sigma^{-1}.
+\]
+This formula follows by transporting a representation along the
+semilinear action on $\overline k^\alpha G$.
+
+Because these automorphisms arise from an actual Galois action
+on the algebra, the map
+\[
+ \sigma\longmapsto
+ \bigl(f_\sigma,\sigma|_{\mathbb Q^{\mathrm{ab}}}\bigr)
+\]
+is a homomorphism into $\Aut(H)\times\Omega$.
+Its image preserves $\mu_n$ and fixes $\lambda_0$ as a pair:
+on $\mu_n$, the first component acts by $\sigma$, which is
+cancelled by the Galois operation on character values.
+The transitivity just established therefore satisfies exactly
+the hypotheses of Theorem~\ref{thm:ordinary}.
+That theorem makes $H$ soluble, and its quotient $G$ is soluble.
+
+\subsection{Positive characteristic}
+
+We first record a lifting fact that makes the passage to
+characteristic zero explicit.
+
+\begin{lemma}\label{lemma:generic-simple}
+Let $R$ be a discrete valuation ring with uniformizer $\pi$ and
+fraction field $F$. Let $A$ be an $R$-algebra that is finite free
+as an $R$-module. If $A/\pi A$ is simple, then $F\otimes_R A$ is
+simple.
+\end{lemma}
+
+\begin{proof}
+Suppose that $I$ is a nonzero proper two-sided ideal of
+$F\otimes_R A$, and put $J=I\cap A$. Clearing denominators shows
+that $FJ=I$. Thus $J$ has positive rank, and $A/J$ has positive
+rank because $I$ is proper.
+The submodule $J$ is saturated: if $\pi a\in J$ for $a\in A$,
+then $a\in I$ and hence $a\in J$. In particular,
+$J\cap\pi A=\pi J$ and $A/J$ is torsion-free.
+Finitely generated torsion-free modules over a discrete valuation
+ring are free. It follows that $J/\pi J$ is a nonzero proper
+two-sided ideal of $A/\pi A$, a contradiction.
+\end{proof}
+
+Now assume $\operatorname{char}K=p>0$.
+Passman's normal-complement and Hall-subalgebra results
+\cite[Lemmas~2.6(ii) and~2.7]{Passman} give a normal subgroup
+$N\triangleleft G$ such that $p\nmid|N|$, $G/N$ is a $p$-group,
+and $K^\alpha N$ is simple. It is enough to prove that $N$ is
+soluble.
+
+Since $|N|$ is invertible in $K$, the algebra $K^\alpha N$ is
+separable over $K$. One separability element is
+\[
+ \frac1{|N|}\sum_{g\in N}u_g\otimes u_g^{-1}.
+\]
+Indeed, its product is $1$, and multiplication by a basis unit
+on either side agrees after reindexing the sum. The center of
+$K^\alpha N$ is therefore a finite separable field extension
+of $K$.
+
+Let $k$ be the perfect closure of $K$. A finite separable
+extension is linearly disjoint from a purely inseparable one;
+thus the center remains a field after extension to $k$.
+Since a central simple algebra stays central simple after
+extending its center, $k^\alpha N$ remains simple.
+
+The Witt ring $W(k)$ is a complete discrete valuation ring
+of characteristic zero with residue field $k$ and uniformizer
+$p$ \cite[Chapter~II]{Serre}. Its multiplicative Teichm\"uller map lifts $\alpha$
+coefficientwise to a cocycle $\widetilde\alpha$ with unit
+coefficients in $W(k)$. The algebra
+$W(k)^{\widetilde\alpha}N$ is finite free, and its reduction
+modulo $p$ is $k^\alpha N$.
+Lemma~\ref{lemma:generic-simple} makes the twisted group algebra
+of $N$ over the fraction field of $W(k)$ simple.
+The characteristic-zero argument makes $N$ soluble.
+Finally, $G/N$ is a $p$-group, so $G$ is soluble.
+This proves Theorem~\ref{thm:main}.
+
+
+\begin{thebibliography}{11}
+\raggedright
+
+\bibitem{BastosSchneider}
+R.~Bastos and C.~Schneider,
+\emph{Groups with a solvable subgroup of prime-power index},
+Monatsh. Math. \textbf{194} (2021), 471--480.
+\href{https://doi.org/10.1007/s00605-020-01486-5}{doi:10.1007/s00605-020-01486-5}.
+See Lemma~6 and Corollary~7; the
+\href{https://arxiv.org/abs/2006.16414}{author manuscript} is freely available.
+
+\bibitem{Brown}
+K.~S.~Brown,
+\emph{Cohomology of Groups},
+Graduate Texts in Mathematics, vol.~87,
+Springer-Verlag, New York, 1982.
+\href{https://doi.org/10.1007/978-1-4684-9327-6}{doi:10.1007/978-1-4684-9327-6}.
+
+\bibitem{GAP}
+T.~Breuer,
+\emph{The GAP Character Table Library},
+RWTH Aachen University, online database.
+See the
+\href{https://www.math.rwth-aachen.de/homes/Thomas.Breuer/ctbllib/ctbltoc/views/simplebyorder.html}{table of simple groups and Schur multipliers},
+the \href{https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib/ctbltoc/data/L3(2).html}{subgroup data for $\mathrm{L}_3(2)$},
+and the
+\href{https://www.math.rwth-aachen.de/~moc/decomposition/tex/L3(2)/L3(2)mod2.pdf}{characteristic-two decomposition matrix of $\mathrm{L}_3(2)$}.
+Accessed 26 October 2026.
+
+\bibitem{Gorenstein}
+D.~Gorenstein,
+\emph{On a theorem of Philip Hall},
+Pacific J. Math. \textbf{19} (1966), no.~1, 77--80.
+\href{https://doi.org/10.2140/pjm.1966.19.77}{doi:10.2140/pjm.1966.19.77}.
+
+\bibitem{Isaacs}
+I.~M.~Isaacs,
+\emph{Character Theory of Finite Groups},
+AMS Chelsea Publishing, vol.~359,
+American Mathematical Society, Providence, RI, 2006.
+Corrected reprint of the 1976 original.
+\href{https://www.ams.org/bookpages/chel-359}{Publisher's information}.
+
+\bibitem{IsaacsGroups}
+I.~M.~Isaacs,
+\emph{Finite Group Theory},
+Graduate Studies in Mathematics, vol.~92,
+American Mathematical Society, Providence, RI, 2008.
+\href{https://doi.org/10.1090/gsm/092}{doi:10.1090/gsm/092}.
+
+\bibitem{Kourovka}
+E.~I.~Khukhro and V.~D.~Mazurov (eds.),
+\emph{Unsolved Problems in Group Theory: The Kourovka Notebook},
+21st ed., Novosibirsk, 2026,
+Problem~18.78, p.~133.
+\href{https://arxiv.org/abs/1401.0300v49}{arXiv:1401.0300v49},
+20 October 2026.
+
+\bibitem{NavarroRizo}
+G.~Navarro and N.~Rizo,
+\emph{Certain irreducible characters over a normal subgroup},
+J. Group Theory \textbf{20} (2017), no.~4, 621--635.
+\href{https://doi.org/10.1515/jgth-2016-0052}{doi:10.1515/jgth-2016-0052}.
+
+\bibitem{Passman}
+D.~S.~Passman,
+\emph{Character theory and group rings},
+in \emph{Character Theory of Finite Groups},
+Contemporary Mathematics, vol.~524,
+American Mathematical Society, Providence, RI, 2010, 139--148.
+\href{https://doi.org/10.1090/conm/524/10352}{doi:10.1090/conm/524/10352}.
+The \href{https://people.math.wisc.edu/~passman/charprob.pdf}{author manuscript}
+contains the cited Lemmas~2.6 and~2.7.
+
+\bibitem{Serre}
+J.-P.~Serre,
+\emph{Local Fields},
+Graduate Texts in Mathematics, vol.~67,
+Springer-Verlag, New York, 1979.
+\href{https://doi.org/10.1007/978-1-4757-5673-9}{doi:10.1007/978-1-4757-5673-9}.
+
+\bibitem{Vallejo}
+C.~Vallejo Rodr\'iguez,
+\emph{Characters, Correspondences and Fields of Values of Finite Groups},
+doctoral dissertation, Universitat de Val\`encia, 2016.
+\href{https://www.uv.es/cavaro3/download/Thesis.pdf}{Full text}.
+See Theorems~1.25, 4.6--4.8 and~4.30.
+
+\end{thebibliography}
+
+\end{document}

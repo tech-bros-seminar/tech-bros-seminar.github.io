@@ -1,0 +1,135 @@
+{
+  "format_version": 1,
+  "title": "Tech bros seminar",
+  "updated_at": "2026-11-06",
+  "source": {
+    "title": "The Kourovka Notebook",
+    "edition": "21st edition · November 2026 update",
+    "url": "https://kourovkanotebookorg.wordpress.com/wp-content/uploads/2026/11/21tkt.pdf",
+    "homepage": "https://kourovkanotebookorg.wordpress.com/",
+    "checked_at": "2026-11-06"
+  },
+  "problems": [
+    {
+      "slug": "kourovka-18-77",
+      "number": "18.77",
+      "title": "Kernels of maximum-degree representations",
+      "area": "Representation theory",
+      "category": "representations",
+      "attribution": "D. S. Passman",
+      "description": "Can the largest irreducible representations collectively detect every element of a finite p-group?",
+      "statement": "Let G be a finite p-group, and let p^e be the largest degree of an irreducible complex representation of G. If p > e, must the intersection of the kernels of all irreducible representations of degree p^e be {1}?",
+      "statement_latex": "For a finite $p$-group $G$, set $p^e=\\max_{\\chi\\in\\operatorname{Irr}_{\\mathbb C}(G)}\\chi(1)$. Does $p>e$ imply $\\bigcap_{\\chi(1)=p^e}\\ker\\chi=\\{1\\}$?",
+      "details": [
+        "The degree of a representation is its dimension. The question asks whether the representations of largest degree, taken together, distinguish every nonidentity group element.",
+        "The intersection ranges over every ordinary irreducible complex representation of that maximum degree."
+      ],
+      "scope": [
+        "The integer e is the logarithm to base p of the largest character degree; it is not the exponent of G.",
+        "Collective faithfulness does not require a single faithful irreducible representation.",
+        "A proof for a restricted family of groups must retain that restriction."
+      ],
+      "source_page": 133,
+      "status": "under_investigation"
+    },
+    {
+      "slug": "kourovka-18-78",
+      "number": "18.78",
+      "title": "Simple twisted group algebras",
+      "area": "Group algebras",
+      "category": "algebras",
+      "attribution": "D. S. Passman",
+      "description": "Must a finite group be soluble if one of its twisted group algebras over an arbitrary field is simple?",
+      "statement": "Let G be a finite group, let K be any field, and let α be a normalized 2-cocycle with values in K×. If the twisted group algebra K^α G is simple, must G be soluble?",
+      "statement_latex": "Let $G$ be a finite group, $K$ a field, and $\\alpha:G\\times G\\to K^\\times$ a normalized $2$-cocycle. If $K^\\alpha G$ is simple, must $G$ be soluble?",
+      "details": [
+        "The twisted group algebra has a K-basis indexed by G, with multiplication u_g u_h = α(g,h)u_gh. The cocycle identity ensures associativity.",
+        "Simple means that the algebra has no nonzero proper two-sided ideals. Its center is not required to equal K.",
+        "The AI generated manuscript proposes a full affirmative answer, covering characteristic zero and positive characteristic. It is available before human review, with its original verification notice intact."
+      ],
+      "scope": [
+        "G is finite and K is arbitrary; no splitting-field or algebraic-closure assumption may be added.",
+        "Simplicity and central simplicity are distinct. The editors identify the central-simple case as known.",
+        "Soluble and solvable mean the same group-theoretic property.",
+        "A public proposed solution does not establish that the original problem has been settled."
+      ],
+      "source_page": 133,
+      "status": "proposed_solution_published"
+    },
+    {
+      "slug": "kourovka-18-80",
+      "number": "18.80",
+      "title": "Augmentation ideals and the Jacobson radical",
+      "area": "Group algebras",
+      "category": "algebras",
+      "attribution": "I. Kaplansky · contributed by D. S. Passman",
+      "description": "When does the augmentation ideal of a group algebra coincide with its Jacobson radical?",
+      "statement": "For an arbitrary field K and a nontrivial group G, is J(K[G]) = I_K(G) equivalent to the existence of a prime p such that char K = p and G is a locally finite p-group?",
+      "statement_latex": "For a field $K$ and a nontrivial group $G$, is $J(K[G])=I_K(G)$ equivalent to $\\operatorname{char}K=p>0$ and $G$ being a locally finite $p$-group?",
+      "details": [
+        "The augmentation map sends a finite sum of group elements with coefficients in K to the sum of those coefficients. Its kernel is the augmentation ideal I_K(G).",
+        "The Jacobson radical is the intersection of the maximal right ideals. A group is locally finite if every finitely generated subgroup is finite."
+      ],
+      "scope": [
+        "The group must be nontrivial; for the trivial group both ideals vanish in every characteristic.",
+        "K[G] denotes the ordinary group algebra, not a completion.",
+        "Elementwise p-power torsion alone does not assert local finiteness."
+      ],
+      "source_page": 134,
+      "status": "under_investigation"
+    },
+    {
+      "slug": "kourovka-4-2-b",
+      "number": "4.2(b)",
+      "title": "Infinite groups of exponent five",
+      "area": "Burnside problems",
+      "category": "burnside",
+      "attribution": "S. I. Adian",
+      "description": "Can a finitely generated group be infinite if the fifth power of every element is the identity?",
+      "statement": "Does there exist an infinite finitely generated group G such that x^5 = 1 for every element x of G? Equivalently, is the free Burnside group B(d,5) infinite for some finite d ≥ 2?",
+      "statement_latex": "Does there exist a group $G=\\langle g_1,\\ldots,g_d\\rangle$, for some finite $d\\ge2$, such that $|G|=\\infty$ and $x^5=1$ for every $x\\in G$? Equivalently, is $B(d,5)$ infinite for some finite $d\\ge2$?",
+      "details": [
+        "Finite generation is essential: the question requires a fixed finite set of generators.",
+        "The identity must hold for every group element, including every word in the generators."
+      ],
+      "scope": [
+        "This is part (b), which fixes exponent five.",
+        "The full Burnside group and the restricted Burnside group are different objects.",
+        "A negative answer must address every finite generating rank; checking rank two alone is insufficient."
+      ],
+      "source_page": 12,
+      "status": "under_investigation"
+    }
+  ],
+  "solutions": [],
+  "preprints": [
+    {
+      "slug": "kourovka-18-78-simple-twisted-group-algebras-v1",
+      "problem_slug": "kourovka-18-78",
+      "title": "Simple twisted group algebras over arbitrary fields",
+      "scope": "full_solution",
+      "status": "review_pending",
+      "version": "1",
+      "manuscript_date": "2026-10-26",
+      "published_at": "2026-11-06",
+      "authors": [],
+      "attribution_note": "The mathematical argument and manuscript were generated by ChatGPT. The seminar has not yet reviewed this version. The supplied manuscript does not list human authors.",
+      "abstract": "A proposed affirmative answer to Kourovka Problem 18.78 for arbitrary fields. The manuscript combines character-theoretic transitivity under group and Galois automorphisms, an affine reduction, and a characteristic-two argument. Galois descent and Witt-vector lifting connect the character theorem to simple twisted group algebras.",
+      "statement": "For every finite group G, every field K, and every normalized 2-cocycle α: G × G → K×, simplicity of K^α G implies that G is soluble.",
+      "proof_file": "files/kourovka-18-78/simple-twisted-group-algebras-v1.pdf",
+      "source_file": "files/kourovka-18-78/simple-twisted-group-algebras-v1.tex",
+      "review_file": "files/kourovka-18-78/review-status-v1.md",
+      "review_summary": "Two separate AI agents reviewed this manuscript on 6 November 2026: one examined the character-theoretic core, and the other examined the Galois, Brauer-character, and field-descent arguments. Neither reported a decisive flaw in the parts examined. The review notes record the scope and limitations of these AI checks.",
+      "release_approved_by": "thomasl2",
+      "release_approved_at": "2026-11-06",
+      "publication_type": "ai_generated",
+      "lean_status": "No Lean formalization is published for this version.",
+      "prompt_links": [
+        {
+          "label": "ChatGPT conversation for Kourovka 18.78",
+          "url": "https://chatgpt.com/share/6aedcca9-c598-83eb-887f-ebfb3d0dbd21"
+        }
+      ]
+    }
+  ]
+}
