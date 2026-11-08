@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[margin=28mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,urlcolor=MidnightBlue,citecolor=MidnightBlue,linkcolor=MidnightBlue]{hyperref}
+\usepackage{enumitem}
+\setlist{itemsep=3pt,topsep=5pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem*{remark}{Remark}
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\M}{\mathcal M}
+\newcommand{\gen}[1]{\langle #1\rangle}
+\title{Minimum-rank overgroups of arbitrary\protect\\ subgroups of free groups\protect\\[5pt]\large A proposed answer to Kourovka Problem 20.11}
+\author{AI-generated mathematical note}
+\date{Version 1 --- 6 November 2026}
+\begin{document}
+\maketitle
+\begin{center}\small\textbf{Candidate solution --- review pending.}\end{center}
+\begin{abstract}
+Let $F\le H$, where $H$ is free and $F$ is contained in a finitely generated subgroup of $H$. Let $r$ be the least rank of such an overgroup. We deduce from results of Jaikin-Zapirain and Takahasi that the rank-$r$ overgroups of $F$ form a finite nonempty sublattice of the subgroup lattice of $H$. They therefore have a least and a greatest member, and ordinary intersection and subgroup join preserve minimum rank. This gives affirmative answers to all four assertions in Kourovka Problem 20.11, including when $F$ is infinitely generated. The finitely generated case is already covered by Jaikin-Zapirain's theorem; the purpose here is to give the reduction needed for the unrestricted statement. Priority is not established by this note.
+\end{abstract}
+
+\section{The question and the existing theorems}
+Problem 20.11 of the Kourovka Notebook, proposed by G.~M.~Bergman, has the following setting. A subgroup $F$ of a free group $H$ is contained in some finite-rank subgroup of $H$. Define
+\[
+r=\min\{\rk(G): F\le G\le H,\ \rk(G)<\infty\},\qquad
+\M(F,H)=\{G:F\le G\le H,\ \rk(G)=r\}.
+\]
+Here rank is free-basis rank and $\rk(1)=0$. Neither $F$ nor $H$ is assumed finitely generated. The four assertions to decide are:
+\begin{enumerate}[label=(\roman*)]
+\item $\M(F,H)$ has a greatest member;
+\item[$(\mathrm{i}')$] $A,B\in\M(F,H)$ implies $\gen{A,B}\in\M(F,H)$;
+\item[$(\mathrm{ii})$] $\M(F,H)$ has a least member;
+\item[$(\mathrm{ii}')$] $A,B\in\M(F,H)$ implies $A\cap B\in\M(F,H)$.
+\end{enumerate}
+A greatest or least member is comparable to every member; mere maximality or minimality is insufficient.
+
+A finitely generated subgroup $A$ of a free group $L$ is \emph{compressed} if each finitely generated subgroup between $A$ and $L$ has rank at least $\rk(A)$. It is \emph{inert} if $\rk(A\cap B)\le\rk(B)$ for every finitely generated $B\le L$.
+
+We use three existing results:
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item Compressed finitely generated subgroups of free groups are inert \cite[Corollary 1.2]{JZ}.
+\item For a finitely generated initial subgroup of a free group, its minimum-rank overgroups are closed under intersection and subgroup join \cite[Corollary 1.5]{JZ}.
+\item A finitely generated subgroup has only finitely many algebraic overgroups in a fixed free group; an overgroup is algebraic when none of its proper free factors contains the initial subgroup. This is Takahasi's theorem, as recorded in \cite[Proposition 2.3]{JZ}.
+\end{enumerate}
+These are essential external inputs. This note does not offer a new proof of them. In particular, the finitely generated case of the pairwise assertions is already result 2.
+
+\section{Finite intersections}
+Write $\M=\M(F,H)$. This family is nonempty by the definition of $r$.
+\begin{lemma}\label{lem:finite}
+Every nonempty finite intersection of members of $\M$ is again a member of $\M$.
+\end{lemma}
+\begin{proof}
+Take $A,B\in\M$ and set $L=\gen{A,B}$. The group $L$ is free and finitely generated. Any finitely generated overgroup of $A$ inside $L$ contains $F$, and hence has rank at least $r=\rk(A)$. Thus $A$ is compressed in $L$, so result 1 gives
+\[
+\rk(A\cap B)\le\rk(B)=r.
+\]
+The intersection is therefore finitely generated. It contains $F$, so minimality of $r$ yields the reverse inequality. Thus $A\cap B\in\M$, and induction proves the lemma.
+\end{proof}
+This already proves assertion $(\mathrm{ii}')$, without assuming $F$ finitely generated.
+
+\section{The least overgroup}
+The main point is to justify the intersection of the entire family. Rank is not generally monotone under subgroup inclusion, so a separate argument is necessary.
+
+\begin{lemma}\label{lem:least}
+The subgroup $C=\bigcap_{G\in\M}G$ has rank $r$. In particular, it is finitely generated and is the least member of $\M$.
+\end{lemma}
+\begin{proof}
+Choose $G_0\in\M$. If $r=0$, then $F=G_0=1$ and $\M=\{1\}$, so the conclusion is immediate. Assume $r\ge1$ and choose a free basis $X$ of $G_0$.
+
+For $K\le G_0$, let $\Gamma_K$ be the Schreier graph with vertices the right cosets $Kw$ and, for each $x\in X$, an edge $Kw\to Kwx$ labelled $x$. Inverse traversals are labelled $x^{-1}$. This connected graph is a covering of the rose with basis $X$. Its based fundamental group is $K$, and its first Betti number equals $\rk(K)$.
+
+Let $Q$ be any finite connected subgraph of $\Gamma_C$. Choose representatives $w_1,\ldots,w_m\in G_0$ for its distinct vertices. For $i\ne j$ we have $w_iw_j^{-1}\notin C$. Thus there exists $A_{ij}\in\M$ such that $w_iw_j^{-1}\notin A_{ij}$. Put
+\[
+B=G_0\cap\bigcap_{i\ne j}A_{ij},
+\]
+with $B=G_0$ if there are no pairs. Lemma~\ref{lem:finite} gives $B\in\M$ and $\rk(B)=r$. Since $C\le B\le G_0$, there is a canonical labelled graph map
+\[
+\Gamma_C\longrightarrow\Gamma_B,\qquad Cw\longmapsto Bw.
+\]
+The exclusions above make this map injective on the vertices of $Q$. An outgoing edge of a specified basis label is unique at each vertex of a Schreier graph. Therefore the map is also injective on the edges of $Q$. Loops and parallel edges cause no exception, since labels and orientations are preserved. Hence $Q$ embeds as a subgraph of $\Gamma_B$.
+
+The cycle rank of a subgraph cannot exceed that of the whole graph. Consequently
+\[
+b_1(Q)\le b_1(\Gamma_B)=r.
+\]
+The rank of any connected graph is the supremum of the cycle ranks of its finite connected subgraphs. To see this, choose a spanning tree: each edge outside it contributes an independent cycle, and any finite collection of those cycles lies in a finite connected subgraph. Applying this to $\Gamma_C$ yields $\rk(C)\le r$.
+
+Thus $C$ is finitely generated. Since $F\le C\le H$, minimality of $r$ now gives $\rk(C)\ge r$. Equality follows, and the definition of $C$ makes it the least member of $\M$.
+\end{proof}
+The argument uses only finite sets of witnesses at a time; no countability assumption on the family $\M$ is needed. The ambient graph is built in the finite-rank group $G_0$, so the rank of $H$ also imposes no restriction.
+
+\section{Joins and the greatest overgroup}
+\begin{theorem}\label{thm:main}
+For every $F\le H$ in the setting of Problem 20.11, the family $\M(F,H)$ is finite and nonempty, and is closed under ordinary intersection and subgroup join. It has a least and a greatest member. Thus all four assertions in the problem hold.
+\end{theorem}
+\begin{proof}
+Let $C$ be the subgroup from Lemma~\ref{lem:least}. Since $F\le C$ and $C$ lies in every member of $\M$, we have the exact identity
+\[
+\M=\{G:C\le G\le H,\ \rk(G)=r\}.
+\]
+The minimum overgroup rank for $C$ is $r$: the group $C$ itself has rank $r$, and any smaller-rank overgroup would also contain $F$.
+
+Take $A,B\in\M$ and again put $L=\gen{A,B}$. Inside $L$, the finitely generated initial subgroup $C$ has minimum overgroup rank $r$. Indeed $A$ is an overgroup of that rank, and a smaller-rank overgroup would contain $F$. Result 2, applied to $C\le L$, now shows that $\gen{A,B}\in\M$. This proves $(\mathrm{i}')$ using only a finite-rank ambient group for the cited theorem.
+
+For each $G\in\M$, the extension $C\le G$ is algebraic. Otherwise a proper free factor $D$ of $G$ would contain $C$. Since $G$ has finite rank $r$, such a free factor has rank strictly less than $r$, contradicting $F\le C\le D$.
+
+Result 3 therefore shows that $\M$ is finite. This application also allows arbitrary ambient free rank. Alternatively choose a finite-rank free factor $P$ of $H$ containing $C$. For an algebraic overgroup $G$, the subgroup $G\cap P$ is a free factor of $G$ by the subgroup theorem for free products. Algebraicity forces $G\le P$, reducing to the finite-rank version of result 3.
+
+Write $\M=\{G_1,\ldots,G_t\}$, where $t\ge1$. Repeated pairwise join closure gives
+\[
+J=\gen{G_1,\ldots,G_t}\in\M.
+\]
+It contains every member, so it is the greatest member, proving $(\mathrm{i})$. Lemmas~\ref{lem:finite} and \ref{lem:least} give $(\mathrm{ii}')$ and $(\mathrm{ii})$. Together these establish the stated finite sublattice property.
+\end{proof}
+
+\section{Scope, attribution, and verification}
+The proposed answer includes infinite-rank $F$ whenever it is contained in a finite-rank overgroup, as well as arbitrary free $H$. The cases $r=0$ and $r=1$ are included. No algorithm for an unspecified infinite subgroup is asserted.
+
+The November 2026 Notebook entry is unmarked and contains no solution comment. That editorial observation and an unsuccessful targeted search do not establish novelty. The central rank-preservation theorem is Jaikin-Zapirain's. The contribution of this exposition is the explicit arbitrary-intersection reduction and its application to the exact four-part formulation. It may be a standard consequence already known to specialists. The arbitrary-intersection principle for inert subgroups is already noted in Kourovka 19.103; the Schreier-graph proof here makes that step explicit.
+
+This manuscript was generated by ChatGPT/Codex. It does not attribute the argument to any human author. Its proof was self-checked against the original quantifiers and the cited theorem statements. A separate Codex reviewer found no mathematical gap in the archived deduction, conditional on the cited results; no repair was needed. The audit and its exact scope are recorded in the accompanying \texttt{review-status-v1.md}; AI review is not human acceptance. The deep proof of the external subgroup-rigidity theorem is not independently re-proved here. No Lean formalization or machine-checked mathematical certificate is supplied.
+
+The candidate is preserved in the research notebook as claim C1 of run \texttt{research-}\allowbreak\texttt{20261106-}\allowbreak\texttt{minrank-}\allowbreak\texttt{rdelaby-7e2c91}, at commit \texttt{faaf280676b2}. The accompanying review record gives the complete identifiers and hashes. Repository validation checks file consistency, not mathematical correctness. No public conversation link was supplied for this version.
+
+\begin{thebibliography}{9}
+\bibitem{Kourovka} E.~I.~Khukhro and V.~D.~Mazurov (eds.), \emph{The Kourovka Notebook: Unsolved Problems in Group Theory}, No.~21, November 2026 update, Problem 20.11, p.~158.\par\url{https://kourovkanotebookorg.wordpress.com/wp-content/uploads/2026/11/21tkt.pdf}
+\bibitem{JZ} A.~Jaikin-Zapirain, \emph{Free groups are $L^2$-subgroup rigid}, arXiv:2403.09515v2 (2026), Corollaries 1.2 and 1.5, Proposition 2.3, and Section 3.7.\par\url{https://arxiv.org/pdf/2403.09515v2}
+\end{thebibliography}
+\end{document}
