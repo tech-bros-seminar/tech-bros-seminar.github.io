@@ -1,13 +1,24 @@
 {
   "format_version": 1,
   "title": "Tech bros seminar",
-  "updated_at": "2026-11-08",
+  "updated_at": "2026-11-24",
   "source": {
     "title": "The Kourovka Notebook",
     "edition": "21st edition · November 2026 update",
     "url": "https://kourovkanotebookorg.wordpress.com/wp-content/uploads/2026/11/21tkt.pdf",
     "homepage": "https://kourovkanotebookorg.wordpress.com/",
     "checked_at": "2026-11-06"
+  },
+  "notebooks": {
+    "dniester": {
+      "short_title": "Dniester",
+      "title": "The Dniester Notebook: Unsolved Problems in the Theory of Rings and Modules",
+      "editors": "V. T. Filippov, V. K. Kharchenko and I. P. Shestakov",
+      "edition": "4th edition (1993), English translation (2006)",
+      "url": "https://citeseerx.ist.psu.edu/document?doi=8deec2f4be6e241a4d745708f970ef8f5a591a6a&repid=rep1&type=pdf",
+      "homepage": "https://doi.org/10.1201/9781420003451.axb",
+      "checked_at": "2026-11-24"
+    }
   },
   "problems": [
     {
@@ -147,6 +158,28 @@
       ],
       "source_page": 157,
       "status": "proposed_solution_published"
+    },
+    {
+      "slug": "dniester-1-1",
+      "notebook": "dniester",
+      "number": "1.1",
+      "title": "Solvability of commutative power-associative nilalgebras",
+      "area": "Nonassociative algebras",
+      "category": "nonassociative-algebras",
+      "attribution": "A. A. Albert (reported by K. A. Zhevlakov)",
+      "description": "If every element of a finite-dimensional commutative power-associative algebra is nilpotent, must the algebra be solvable?",
+      "statement": "Let A be a finite-dimensional commutative power-associative algebra over a field of characteristic different from two. If each element of A is nilpotent, must A be solvable?",
+      "statement_latex": "Let $A$ be a finite-dimensional commutative power-associative algebra over a field of characteristic different from two. Suppose every element of $A$ is nilpotent. Must $A$ be solvable?",
+      "details": [
+        "Power-associativity means that each element generates an associative subalgebra, so its powers are unambiguous.",
+        "For solvability, start with the whole algebra and repeatedly take the linear span of products of pairs of elements in the current subspace. The question asks whether this sequence eventually reaches zero."
+      ],
+      "scope": [
+        "The field may have characteristic zero or odd positive characteristic.",
+        "Nilpotence is assumed for each individual element. The question asks about the derived series of the whole algebra."
+      ],
+      "source_page": 3,
+      "status": "available_to_study"
     }
   ],
   "solutions": [],

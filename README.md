@@ -43,6 +43,12 @@ The build recreates `dist/` from `content/catalog.json`, `assets/`, and the
 publication files explicitly referenced by the catalogue. Serve `dist/` with a local static server, for example
 `python3 -m http.server 8000 --directory dist`. Do not commit temporary QA pages.
 
+## Adding problems and improved proofs
+
+Contributors can choose questions from either the Kourovka Notebook or the Dniester Notebook. In `content/catalog.json` identify the exact edition, printed problem number, proposer or reporter, printed page and assumptions. Replicate the Dniester 1.1 entry to start a Dniester question. Set `notebook` to `dniester` and use the same `dniester-<number>` slug in both repositories (e.g. `dniester-1-1`). Set `pdf_page` when the PDF viewer page differs from `source_page`. Legacy entries with no notebook field use the original Kourovka edition in `source`.
+
+Choose `available_to_study` for a new question or `under_investigation` once work begins. Check the contemporary literature before describing a historical question as open. For an improved solution, follow [the revision and publication workflow](CONTRIBUTING.md). This includes updating the website and checking both versions after deployment.
+
 ## Publishing and future edits
 
 The repository includes `.github/workflows/pages.yml`. Select **Settings →
@@ -99,8 +105,7 @@ fields with invented review or acceptance.
 
 ## Sources and assets
 
-Problem statements are paraphrased from the editors' Kourovka Notebook; exact
-edition, page, attribution and source links are recorded in the catalogue.
+The public catalogue records the edition, page and attribution of each problem in the Kourovka or Dniester Notebook. The Dniester entries use the English translation by Murray R. Bremner and Mikhail V. Kochetov of the fourth Russian edition. [Published translation](https://doi.org/10.1201/9781420003451.axb).
 The cybernetic Galois illustration and locally hosted fonts are included in `assets/`.
 The font license is included in `assets/fonts/LICENSE.txt`.
 
